@@ -15,8 +15,10 @@
         <th>Doğum Tarihi</th>
         <th>Telefon Numarası</th>
         <th>Mail Adresi</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
     </tr>
-    @foreach(var item in Model)
+    @foreach (var item in Model)
     {
         <tr>
             <td>@item.Id</td>
@@ -25,6 +27,8 @@
             <td>@item.BirthDay</td>
             <td>@item.PhoneNumber</td>
             <td>@item.EMail</td>
+            <td><a href="/Customers/DeleteCustomer/@item.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Customers/UpdateCustomer/@item.Id" class="btn btn-success">Güncelle</a></td>
         </tr>
     }
 </table>
