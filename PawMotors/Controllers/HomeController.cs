@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using PawMotors.Entity;
 using PawMotors.Models;
 using System.Diagnostics;
 
@@ -12,21 +13,13 @@ namespace PawMotors.Controllers
         {
             _logger = logger;
         }
-
+        [HttpGet]
+        public IActionResult GetAll(Customers customers)
+        {
+            ViewBag.Customers = customers.FirstName;
+            return View(customers);
+        }
         public IActionResult Index()
-        {
-            return View();
-        }
-        public IActionResult Crate()
-        {
-            return View();
-        }
-
-        public IActionResult Update()
-        {
-            return View();
-        }
-        public IActionResult Delete()
         {
             return View();
         }

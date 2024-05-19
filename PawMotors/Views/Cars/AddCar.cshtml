@@ -1,0 +1,27 @@
+﻿@model PawMotors.Entity.Cars
+
+@{
+    ViewData["Title"] = "AddCar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Araç Ekleme Sayfası</h1>
+
+<form method="post">
+    @Html.Label("Araç Markası")
+    @Html.TextBoxFor(x => x.Brand, new { @class = "form-control"})
+    <br />
+    @Html.Label("Araç Modeli")
+    @Html.TextBoxFor(x => x.Model, new { @class = "form-control" })
+    <br />
+    @Html.Label("Model Yılı")
+    @Html.TextBoxFor(x => x.Year, new { @class = "form-control" })
+    <br />
+    @Html.Label("Renk")
+    @Html.TextBoxFor(x => x.Color, new { @class = "form-control" })
+    <br />
+    @Html.Label("Fiyat")
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-success">Aracı Kaydet</button>
+</form>

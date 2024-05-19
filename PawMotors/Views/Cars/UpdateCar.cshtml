@@ -1,0 +1,29 @@
+﻿@model PawMotors.Entity.Cars
+@{
+    ViewData["Title"] = "UpdateCar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Araba Güncelleme Sayfası</h1>
+
+<form method="post">
+    @Html.Label("Araç ID")
+    @Html.TextBoxFor(x => x.Id, new { @class = "form-control" })
+    <br />
+    @Html.Label("Araç Marka")
+    @Html.TextBoxFor(x => x.Brand, new { @class = "form-control" })
+    <br />
+    @Html.Label("Araç Modeli")
+    @Html.TextBoxFor(x => x.Model, new { @class = "form-control" })
+    <br />
+    @Html.Label("Model Yılı")
+    @Html.TextBoxFor(x => x.Year, new { @class = "form-control" })
+    <br />
+    @Html.Label("Renk")
+    @Html.TextBoxFor(x => x.Color, new { @class = "form-control" })
+    <br />
+    @Html.Label("Fiyat")
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>

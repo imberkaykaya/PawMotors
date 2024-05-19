@@ -1,0 +1,87 @@
+﻿@using PawMotors.Entity
+@model List<Cars>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<h1>Araba Listesi</h1>
+
+<table id="carsTable" class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Marka</th>
+            <th>Model</th>
+            <th>Yıl</th>
+            <th>Renk</th>
+            <th>Fiyat</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: '@Url.Action("GetCars", "Cars")',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    var rows = '';
+                    $.each(data, function (index, car) {
+                        rows += '<tr>' +
+                            '<td>' + car.id + '</td>' +
+                            '<td>' + car.brand + '</td>' +
+                            '<td>' + car.model + '</td>' +
+                            '<td>' + car.year + '</td>' +
+                            '<td>' + car.color + '</td>' +
+                            '<td>' + car.price + '</td>' +
+                            '</tr>';
+                    });
+                    $('#carsTable tbody').html(rows);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+    </script>
+}
+
+@*
+
+<h1>Araç Sayfası</h1>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Marka</th>
+        <th>Model</th>
+        <th>Yıl</th>
+        <th>Renk</th>
+        <th>Fiyat</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Brand</td>
+            <td>@item.Model</td>
+            <td>@item.Year</td>
+            <td>@item.Color</td>
+            <td>@item.Price</td>
+            <td><a href="/Cars/DeleteCar/@item.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Cars/UpdateCar/@item.Id" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+    <a asp-controller="Cars" asp-action="AddCar" class="btn btn-primary">Yeni Araç Ekle</a>
+</table> *@
+
