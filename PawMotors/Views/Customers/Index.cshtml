@@ -1,0 +1,31 @@
+﻿@using PawMotors.Entity
+@model List<Customers>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Müşteri Listesi</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Müşteri Adı</th>
+        <th>Müşteri Soyadı</th>
+        <th>Doğum Tarihi</th>
+        <th>Telefon Numarası</th>
+        <th>Mail Adresi</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.BirthDay</td>
+            <td>@item.PhoneNumber</td>
+            <td>@item.EMail</td>
+        </tr>
+    }
+</table>
+<a href="/Customers/AddCustomer" class="btn btn-primary">Yeni Müşteri Girişi</a>

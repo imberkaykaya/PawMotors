@@ -1,0 +1,26 @@
+﻿@model PawMotors.Entity.Customers
+@{
+    ViewData["Title"] = "AddCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Yeni Müşteri Sayfası</h1>
+
+
+<form method="post">
+    @Html.Label("Müşteri Adı")
+    @Html.TextBoxFor(x=>x.FirstName, new {@class="form-control"})
+    <br />
+    @Html.Label("Müşteri Soyadı")
+    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Doğum Tarihi")
+    @Html.TextBoxFor(x => x.BirthDay, new { @class = "form-control" })
+    <br />
+    @Html.Label("Telefon Numarası")
+    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+    <br />
+    @Html.Label("Mail Adresi")
+    @Html.TextBoxFor(x => x.EMail, new { @class = "form-control" })
+    <br />
+</form>
